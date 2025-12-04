@@ -7,7 +7,7 @@ import { RunnablePassthrough, RunnableSequence } from "@langchain/core/runnables
 
 const llm = new ChatGoogleGenerativeAI({
     apiKey: process.env.GEMINI_API_KEY,
-    model: "gemini-1.5-pro",
+    model: "gemini-2.0-flash",
     maxOutputTokens: 1024,
     temperature: 0.7,
 });
