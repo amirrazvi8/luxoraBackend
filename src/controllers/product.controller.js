@@ -134,27 +134,27 @@ const singleProduct = asyncHandler(async (req, res) => {
     return res.status(200).json(new ApiResponse(200, product, "Product retrieved successfully"));
 });
 
-const productQuery = asyncHandler(async (req, res) => {
-    try {
-        const { question, conv_history = [] } = req.body;
-        if (!question) return res.status(400).json({ error: "No question provided." });
+// const productQuery = asyncHandler(async (req, res) => {
+//     try {
+//         const { question, conv_history = [] } = req.body;
+//         if (!question) return res.status(400).json({ error: "No question provided." });
 
-        try {
-            const response = await finalChain.invoke({
-                question,
-                conv_history: formatConvHistory(conv_history),
-            });
+//         try {
+//             const response = await finalChain.invoke({
+//                 question,
+//                 conv_history: formatConvHistory(conv_history),
+//             });
             
 
-            res.json(response);
-        } catch (error) {
-            console.log(error, "agent error");
-        }
-    } catch (error) {
-        console.log(error, "ProductQuery error");
-        res.status(500).json({ error: "Internal server error in Product_Query controller" });
-    }
-});
+//             res.json(response);
+//         } catch (error) {
+//             console.log(error, "agent error");
+//         }
+//     } catch (error) {
+//         console.log(error, "ProductQuery error");
+//         res.status(500).json({ error: "Internal server error in Product_Query controller" });
+//     }
+// });
 
 const formatConvHistory = (messages) => {
     return messages
@@ -184,4 +184,4 @@ const formatConvHistory = (messages) => {
 
 // updateProduct();
 
-export { addProduct, handleAllProducts, removeProduct, singleProduct, productQuery };
+export { addProduct, handleAllProducts, removeProduct, singleProduct };

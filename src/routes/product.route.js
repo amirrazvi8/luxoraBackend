@@ -1,5 +1,5 @@
 import Router from "express";
-import { addProduct, handleAllProducts, removeProduct, singleProduct, productQuery } from "../controllers/product.controller.js";
+import { addProduct, handleAllProducts, removeProduct, singleProduct } from "../controllers/product.controller.js";
 import upload from "../middlewares/multer.js";
 import { isAdmin } from "../middlewares/admin.middleware.js";
 
@@ -19,7 +19,6 @@ router.route("/add").post(
 router.route("/all").get(handleAllProducts);
 router.route("/:id").get(isAdmin, singleProduct);
 router.route("/:id").delete(isAdmin, removeProduct);
-router.route("/product-query").post(productQuery);
 
 
 export default router;
