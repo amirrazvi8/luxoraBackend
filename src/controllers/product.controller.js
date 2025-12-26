@@ -6,7 +6,6 @@ import { Product } from "../models/product.model.js";
 import mongoose from "mongoose";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import { CohereEmbeddings } from "@langchain/cohere";
-import { finalChain } from "../utils/Agent.js";
 
 const cohereEmbeddings = new CohereEmbeddings({
     apiKey: process.env.COHERE_API_KEY,
